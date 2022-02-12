@@ -47,8 +47,8 @@ namespace StateMachine
 
         public void ExecuteStateUpdate()
         {
-            if (CurrentState != null)
-                CurrentState.Update();
+            if (StateStack.Count == 0) return;
+            CurrentState.Update();
         }
 
     }

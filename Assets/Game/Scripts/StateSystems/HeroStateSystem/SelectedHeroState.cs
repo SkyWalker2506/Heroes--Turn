@@ -2,10 +2,10 @@
 {
     public class SelectedHeroState : HeroState
     {
-        HeroDisplayManager heroDisplayManager;
+        HeroDisplayController heroDisplayController;
         public SelectedHeroState(HeroStateMachine heroStateMachine) : base(heroStateMachine)
         {
-            heroDisplayManager = heroStateMachine.Hero.DisplayManager;
+            heroDisplayController = heroStateMachine.Hero.DisplayController;
         }
 
         public override void OnTap()
@@ -21,13 +21,13 @@
         public override void Enter()
         {
             HeroManager.SelectedHeroes.Add(StateMachine.Hero);
-            heroDisplayManager.ToggleSelected(true);
+            heroDisplayController.ToggleSelected(true);
         }
 
         public override void Exit()
         {
             HeroManager.SelectedHeroes.Remove(StateMachine.Hero);
-            heroDisplayManager.ToggleSelected(false);
+            heroDisplayController.ToggleSelected(false);
         }
     }
 }

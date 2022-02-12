@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroDisplayManager : MonoBehaviour
+public class HeroDisplayController : MonoBehaviour
 {
     [SerializeField] GameObject selectedObject;
-    [SerializeField] GameObject statsPanel;
+    [SerializeField] HeroStatsController statsController;
 
     private void Awake()
     {
@@ -21,6 +21,9 @@ public class HeroDisplayManager : MonoBehaviour
 
     public void DisplayStats(bool value)
     {
-        statsPanel.SetActive(value);
+        if(value)
+            statsController.ShowStats();
+        else
+            statsController.HideStats();
     }
 }
