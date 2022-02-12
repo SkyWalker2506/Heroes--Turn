@@ -14,6 +14,11 @@
             StateMachine.PopState();
         }
 
+        public override void OnHold()
+        {
+            StateMachine.PopState();
+        }
+
         public override void Enter()
         {
             heroDisplayController.DisplayStats(true);
