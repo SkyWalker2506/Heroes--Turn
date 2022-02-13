@@ -5,52 +5,26 @@ namespace StateMachine
 {
     public abstract class MonoStateMachineBase : MonoBehaviour, IStateMachine
     {
-        public Stack<IState> StateStack { get; protected set; }
-        public IState CurrentState => StateStack.Peek();
+        StateMachine stateMachine = new StateMachine();
 
-        private void Awake()
-        {
-            StateStack = new Stack<IState>();
-        }
+        public Stack<IState> StateStack => stateMachine.StateStack;
+
+        public IState CurrentState => stateMachine.CurrentState;
+
+        public void SetState(IState newState) => stateMachine.SetState(newState);
+
+        public void PushState(IState newState) => stateMachine.PushState(newState);
+
+        public void PopState() => stateMachine.PopState();
+
+        public bool Contains(IState state) => stateMachine.Contains(state);
+
+        public void ExecuteStateUpdate() => stateMachine.ExecuteStateUpdate();
 
         protected virtual void Update()
         {
             ExecuteStateUpdate();
         }
-
-        public void SetState(IState newState)
-        {
-            if (StateStack?.Count >0)
-                CurrentState.Exit();
-            StateStack = new Stack<IState>();
-            StateStack.Push(newState);
-            CurrentState.Enter();
-        }
-
-        public void PushState(IState newState)
-        {
-            StateStack.Push(newState);
-            CurrentState.Enter();
-        }
-
-        public void PopState()
-        {
-            if (StateStack.Count == 0) return;
-            CurrentState.Exit();
-            StateStack.Pop();
-        }
-
-        public bool Contains(IState state)
-        {
-            return StateStack.Contains(state);
-        }
-
-        public void ExecuteStateUpdate()
-        {
-            if (StateStack.Count == 0) return;
-            CurrentState.Update();
-        }
-
     }
 
 }

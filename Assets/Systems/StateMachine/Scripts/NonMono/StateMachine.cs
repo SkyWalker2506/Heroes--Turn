@@ -2,7 +2,7 @@
 
 namespace StateMachine
 {
-    public abstract class StateMachineBase: IStateMachine
+    public class StateMachine: IStateMachine
     {
         public Stack<IState> StateStack { get; protected set; } = new Stack<IState>();
         public IState CurrentState => StateStack.Peek();
@@ -12,7 +12,7 @@ namespace StateMachine
         {
             if (StateStack.Count > 0)
                 CurrentState.Exit();
-            StateStack.Clear();
+            StateStack = new Stack<IState>();
             StateStack.Push(newState);
             CurrentState.Enter();
         }
