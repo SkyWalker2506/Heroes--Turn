@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: HeroStats.Name
       value: Hero 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: HeroStats.BaseAttackPower
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2718889182516745220, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
