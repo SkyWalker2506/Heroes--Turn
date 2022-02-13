@@ -10,7 +10,7 @@
 
         public override void OnTap()
         {
-            StateMachine.SetState(new DefaultHeroState(StateMachine));
+            StateMachine.SetState(new ReadyToSelectState(StateMachine));
         }
 
         public override void OnHold()

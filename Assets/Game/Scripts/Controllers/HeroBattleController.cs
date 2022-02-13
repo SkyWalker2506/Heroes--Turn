@@ -1,4 +1,5 @@
 ﻿using StateMachine.GameStateMachine;
+using StateMachine.HeroStateMachine;
 using UnityEngine;
 
 public class HeroBattleController : MonoBehaviour
@@ -23,6 +24,8 @@ public class HeroBattleController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             heros[i] = ((GameObject)Instantiate(Resources.Load(HeroManager.SelectedHeroes[i]), heroContainers[i])).GetComponent<Hero>();
+            var stateMachine = heros[i].HeroStateMachine;
+            stateMachine.SetState(new ReadyToAttackState(stateMachine));
         }
 
         foreach (var hero in heros)

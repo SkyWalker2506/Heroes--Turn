@@ -1,8 +1,10 @@
 ﻿using StateMachine.GameStateMachine;
+using StateMachine.HeroStateMachine;
 using UnityEngine;
 
 public class HeroSelectionController : MonoBehaviour
 {
+    [SerializeField] Transform heroContainer;
     [SerializeField] GameObject[] heros;
     static int availableHeroCount=3;
 
@@ -31,7 +33,9 @@ public class HeroSelectionController : MonoBehaviour
     {
         for (int i = 0; i < availableHeroCount; i++)
         {
-            heros[i].SetActive(true);
+            var hero = ((GameObject)Instantiate(Resources.Load(heros[i].name),heroContainer)).GetComponent<Hero>();
+            hero.name = heros[i].name;
+            hero.HeroStateMachine.SetState(new ReadyToSelectState(hero.HeroStateMachine));
         }
     }
 }

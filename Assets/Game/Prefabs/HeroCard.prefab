@@ -1392,6 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cc5f681e9378b44aa82b901ac51a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeroStateMachine: {fileID: 1316437633207553097}
   HeroStats:
     Name: Hero
     Level: 1

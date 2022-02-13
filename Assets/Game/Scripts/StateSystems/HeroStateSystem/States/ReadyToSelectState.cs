@@ -1,8 +1,8 @@
 ﻿namespace StateMachine.HeroStateMachine
 {
-    public class DefaultHeroState : HeroState
+    public class ReadyToSelectState : HeroState
     {
-        public DefaultHeroState(HeroStateMachine heroStateMachine) : base(heroStateMachine)
+        public ReadyToSelectState(HeroStateMachine heroStateMachine) : base(heroStateMachine)
         {
         }
 

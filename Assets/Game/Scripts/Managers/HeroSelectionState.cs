@@ -17,7 +17,7 @@ namespace StateMachine.GameStateMachine
 
         protected override void OnSceneLoaded()
         {
-            HeroManager.SelectedHeroes.Clear();
+            HeroManager.ClearHeroList();
             OnHeroSelectionStarted?.Invoke();
         }
 

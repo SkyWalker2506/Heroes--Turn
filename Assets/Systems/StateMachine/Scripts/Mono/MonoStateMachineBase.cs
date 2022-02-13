@@ -20,9 +20,9 @@ namespace StateMachine
 
         public void SetState(IState newState)
         {
-            if (StateStack.Count >0)
+            if (StateStack?.Count >0)
                 CurrentState.Exit();
-            StateStack.Clear();
+            StateStack = new Stack<IState>();
             StateStack.Push(newState);
             CurrentState.Enter();
         }

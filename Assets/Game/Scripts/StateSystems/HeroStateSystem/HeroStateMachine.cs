@@ -13,7 +13,6 @@ namespace StateMachine.HeroStateMachine
         private void Start()
         {
             Hero = GetComponent<Hero>();
-            SetState(new DefaultHeroState(this));
         }
 
         public void OnPressed()
