@@ -1,9 +1,10 @@
 ﻿using StateMachine.HeroStateMachine;
 using System.Collections.Generic;
+using UnityEngine;
 
-public static class HeroManager
+public class HeroManager 
 {
-    public static List<Hero> SelectedHeroes=new List<Hero>();
+    public static List<string> SelectedHeroes = new List<string>();
     static int maxSelectedCount = 3;
     public static bool CanNewHeroSelected { get { return maxSelectedCount > SelectedHeroes.Count; } }
     public static HeroStateMachine HeroThatShowsInfo;

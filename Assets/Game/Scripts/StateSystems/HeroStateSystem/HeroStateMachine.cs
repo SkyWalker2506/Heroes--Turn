@@ -35,6 +35,5 @@ namespace StateMachine.HeroStateMachine
                 currentHeroState.OnTap();
             }
         }
-
     }
 }

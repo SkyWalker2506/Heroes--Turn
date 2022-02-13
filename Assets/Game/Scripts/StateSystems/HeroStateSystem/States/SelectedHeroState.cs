@@ -20,13 +20,13 @@
 
         public override void Enter()
         {
-            HeroManager.SelectedHeroes.Add(StateMachine.Hero);
+            HeroManager.SelectedHeroes.Add(StateMachine.Hero.name);
             heroDisplayController.ToggleSelected(true);
         }
 
         public override void Exit()
         {
-            HeroManager.SelectedHeroes.Remove(StateMachine.Hero);
+            HeroManager.SelectedHeroes.Remove(StateMachine.Hero.name);
             heroDisplayController.ToggleSelected(false);
         }
     }

@@ -4,13 +4,13 @@ namespace StateMachine
 {
     public abstract class StateMachineBase: IStateMachine
     {
-        public Stack<IState> StateStack { get; protected set; }
+        public Stack<IState> StateStack { get; protected set; } = new Stack<IState>();
         public IState CurrentState => StateStack.Peek();
 
 
         public void SetState(IState newState)
         {
-            if (CurrentState != null)
+            if (StateStack.Count > 0)
                 CurrentState.Exit();
             StateStack.Clear();
             StateStack.Push(newState);
@@ -37,9 +37,10 @@ namespace StateMachine
 
         public void ExecuteStateUpdate()
         {
-            if (CurrentState != null)
-                CurrentState.Update();
+            if (StateStack.Count == 0) return;
+            CurrentState.Update();
         }
+
     }
 
 }

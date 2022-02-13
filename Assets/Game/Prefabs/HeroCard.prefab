@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hero: {fileID: 2456526883605573427}
-  holdTime: 1
+  holdTime: 3
 --- !u!114 &1639289980979068827
 MonoBehaviour:
   m_ObjectHideFlags: 0

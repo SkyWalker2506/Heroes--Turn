@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 
-    public class Hero : MonoBehaviour
+public class Hero : MonoBehaviour
+{
+    public HeroStats HeroStats;
+    public HeroDisplayController DisplayController;
+
+    private void Awake()
     {
-        public HeroStats HeroStats;
-        public HeroDisplayController DisplayController;
+        HeroStats.LoadData();
     }
+
+}
 
