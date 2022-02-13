@@ -21,7 +21,6 @@ namespace StateMachine.GameStateMachine
 
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            Debug.Log(scene.name);
             if (scene.name == sceneNameToLoad)
             {
                 OnSceneLoaded();

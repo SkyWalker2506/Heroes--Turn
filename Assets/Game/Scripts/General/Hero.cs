@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
@@ -10,5 +11,9 @@ public class Hero : MonoBehaviour
         HeroStats.LoadData();
     }
 
+    public void ResetHealth()
+    {
+        HeroStats.ResetHealth();
+    }
 }
 

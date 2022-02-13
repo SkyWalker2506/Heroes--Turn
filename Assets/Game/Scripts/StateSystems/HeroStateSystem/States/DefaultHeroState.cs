@@ -8,7 +8,7 @@
 
         public override void OnTap()
         {
-            if(HeroManager.CanNewHeroSelected)
+            if(HeroManager.CanNewHeroBeSelected)
                 StateMachine.SetState(new SelectedHeroState(StateMachine));
         }
 

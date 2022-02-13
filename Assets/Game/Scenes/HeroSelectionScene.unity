@@ -3689,4 +3689,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7d823fefbd6304abfef22b7f246982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleButton: {fileID: 0}
+  battleButton: {fileID: 2025891000}

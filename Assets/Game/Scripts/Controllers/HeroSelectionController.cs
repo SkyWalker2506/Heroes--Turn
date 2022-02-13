@@ -31,7 +31,6 @@ public class HeroSelectionController : MonoBehaviour
     {
         for (int i = 0; i < availableHeroCount; i++)
         {
-            Debug.Log(heros[i]);
             heros[i].SetActive(true);
         }
     }
