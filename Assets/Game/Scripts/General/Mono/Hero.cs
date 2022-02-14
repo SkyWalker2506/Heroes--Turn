@@ -15,6 +15,11 @@ public class Hero : MonoBehaviour
         HeroStats.LoadData();
     }
 
+    public void ApplyDamage(int damage)
+    {
+        HeroStats.DecreaseHealth(damage);
+    }
+
     public void SetHealthForBattle()
     {
         HealthUI.SetCharacterStats(HeroStats);

@@ -1,6 +1,6 @@
 ﻿namespace StateMachine.BattleStateMachine
 {
-    public class EnemyTurn : BattleStateBase
+    public class PlayerWonState : BattleStateBase
     {
 
     }

@@ -10,7 +10,7 @@ public abstract class CharacterStats : ICharacterStats
     [SerializeField] protected int baseAttackPower;
     public virtual int AttackPower => baseAttackPower;
     public UnityEvent OnHealthUpdated => new UnityEvent();
-
+    public UnityEvent OnHealthBelowZero => new UnityEvent();
 
     public void ResetHealth()
     {
@@ -23,6 +23,8 @@ public abstract class CharacterStats : ICharacterStats
     {
         CurrentHealth = Mathf.Max(CurrentHealth - value, 0);
         OnHealthUpdated?.Invoke();
+        if (CurrentHealth == 0)
+            OnHealthBelowZero?.Invoke();
     }
 
     public void IncreaseHealth(int value)

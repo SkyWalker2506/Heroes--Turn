@@ -16,5 +16,4 @@
             StateMachine.PushState(new DisplayStatsState(StateMachine));
         }
     }
-
 }

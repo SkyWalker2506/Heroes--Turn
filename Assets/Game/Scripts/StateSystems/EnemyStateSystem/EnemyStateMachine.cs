@@ -1,4 +1,4 @@
-﻿namespace StateMachine.HeroStateMachine
+﻿namespace StateMachine.EnemyStateMachine
 {
     public class EnemyStateMachine : StateMachine
     {

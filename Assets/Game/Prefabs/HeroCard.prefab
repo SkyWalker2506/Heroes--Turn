@@ -1394,10 +1394,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeroStateMachine: {fileID: 1316437633207553097}
-  HeroStats:
+  heroStats:
     baseHealth: 0
     baseAttackPower: 0
-    Name: Hero
+    Name: 
     Level: 1
     Experience: 0
   HealthUI: {fileID: 6192834500200812787}

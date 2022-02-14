@@ -1,9 +1,7 @@
 ﻿namespace StateMachine.BattleStateMachine
 {
-    public class PlayerTurn : BattleState
+    public class PlayerTurn : BattleStateBase
     {
-        public PlayerTurn(BattleStateMachine stateMachine) : base(stateMachine)
-        {
-        }
+
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace StateMachine.EnemyStateMachine
+﻿namespace StateMachine.BattleStateMachine
 {
-    public abstract class EnemyState : IState
+    public abstract class BattleStateBase : IState
     {
         public virtual void Enter(){}
 
