@@ -1,5 +1,4 @@
 ﻿using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 namespace StateMachine.GameStateMachine
 {
@@ -8,7 +7,6 @@ namespace StateMachine.GameStateMachine
         public static UnityEvent OnHeroSelectionStarted = new UnityEvent();
 
         public HeroSelectionState(string sceneName) : base(sceneName){}
-
 
         public override void Enter()
         {

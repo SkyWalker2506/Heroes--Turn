@@ -8,16 +8,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: HealthUI
+      value: 
+      objectReference: {fileID: 5102435662733125949}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: HeroStats.Name
       value: Hero 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: heroStats.Name
+      value: 'Hero '
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: HeroStats.BaseHealth
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: HeroStats.baseHealth
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: heroStats.baseHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: HeroStats.BaseAttackPower
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: HeroStats.baseAttackPower
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: heroStats.baseAttackPower
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2718889182516745220, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: m_Pivot.x
@@ -121,3 +145,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+--- !u!114 &5102435662733125949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6192834500200812787, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+  m_PrefabInstance: {fileID: 1386581027949836750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427249edacd6e504288d1deefc14ff07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

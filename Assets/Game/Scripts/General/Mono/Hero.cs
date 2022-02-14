@@ -5,7 +5,9 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     public HeroStateMachine HeroStateMachine;
-    public HeroStats HeroStats;
+    [SerializeField] HeroStats heroStats;
+    public HeroStats HeroStats => heroStats;
+    public HealthUI HealthUI;
     public HeroDisplayController DisplayController;
 
     private void Awake()
@@ -13,9 +15,9 @@ public class Hero : MonoBehaviour
         HeroStats.LoadData();
     }
 
-    public void ResetHealth()
+    public void SetHealthForBattle()
     {
-        HeroStats.ResetHealth();
+        HealthUI.SetCharacterStats(HeroStats);
+        HealthUI.ToggleUI(true);
     }
 }
-

@@ -1,5 +1,4 @@
-﻿using StateMachine.GameStateMachine;
-using StateMachine.HeroStateMachine;
+﻿using StateMachine.HeroStateMachine;
 using UnityEngine;
 
 public class HeroBattleController : MonoBehaviour
@@ -7,17 +6,7 @@ public class HeroBattleController : MonoBehaviour
     [SerializeField] Transform[] heroContainers;
     Hero[] heros;
 
-    private void OnEnable()
-    {
-        BattleState.OnBattleStarted.AddListener(SetHeroes);
-    }
-
-    private void OnDisable()
-    {
-        BattleState.OnBattleStarted.RemoveListener(SetHeroes);
-    }
-
-    void SetHeroes()
+    public void SetHeroes()
     {
         var count = HeroManager.SelectedHeroes.Count;
         heros = new Hero[count];
@@ -25,12 +14,7 @@ public class HeroBattleController : MonoBehaviour
         {
             heros[i] = ((GameObject)Instantiate(Resources.Load(HeroManager.SelectedHeroes[i]), heroContainers[i])).GetComponent<Hero>();
             var stateMachine = heros[i].HeroStateMachine;
-            stateMachine.SetState(new ReadyToAttackState(stateMachine));
-        }
-
-        foreach (var hero in heros)
-        {
-            hero.ResetHealth();
+            stateMachine.SetState(new GettingReadyToBattleState(stateMachine));
         }
     }
 }

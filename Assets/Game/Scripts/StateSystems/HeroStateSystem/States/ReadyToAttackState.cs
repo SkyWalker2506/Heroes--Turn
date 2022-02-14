@@ -8,7 +8,7 @@
 
         public override void OnTap()
         {
-            //Attack State e gec
+            StateMachine.SetState(new AttackState(StateMachine));
         }
 
         public override void OnHold()
@@ -16,4 +16,5 @@
             StateMachine.PushState(new DisplayStatsState(StateMachine));
         }
     }
+
 }
