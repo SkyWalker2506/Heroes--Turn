@@ -2,19 +2,22 @@
 {
     public class ReadyToSelectState : HeroState
     {
-        public ReadyToSelectState(HeroStateMachine heroStateMachine) : base(heroStateMachine)
+        Hero hero;
+        public ReadyToSelectState(Hero hero) 
         {
+            this.hero= hero;
+            StateMachine = hero.HeroStateMachine;
         }
 
         public override void OnTap()
         {
             if(HeroManager.CanNewHeroBeSelected)
-                StateMachine.SetState(new SelectedHeroState(StateMachine));
+                StateMachine.SetState(new SelectedHeroState(hero));
         }
 
         public override void OnHold()
         {
-            StateMachine.PushState(new DisplayStatsState(StateMachine));
+            StateMachine.PushState(new DisplayStatsState(hero));
         }
     }
 }

@@ -2,12 +2,7 @@
 {
     public abstract class HeroState : IState
     {
-        public HeroStateMachine StateMachine { get; }
-
-        public HeroState (HeroStateMachine heroStateMachine)
-        {
-            StateMachine = heroStateMachine;
-        }
+        public HeroStateMachine StateMachine { get; protected set; }
 
         public virtual void OnTap(){}
 

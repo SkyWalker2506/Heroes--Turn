@@ -15,7 +15,6 @@ public abstract class CharacterStats : ICharacterStats
     public void ResetHealth()
     {
         CurrentHealth = Health;
-        Debug.Log(HealthPercentage);
         OnHealthUpdated?.Invoke();
     }
 

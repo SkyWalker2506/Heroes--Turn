@@ -3,15 +3,14 @@
     public class GettingReadyToBattleState : HeroState
     {
         Hero hero;
-        public GettingReadyToBattleState(HeroStateMachine heroStateMachine) : base(heroStateMachine)
+        public GettingReadyToBattleState(HeroStateMachine heroStateMachine)
         {
             hero = heroStateMachine.Hero;
         }
 
         public override void Enter()
         {
-            hero.HeroStats.ResetHealth();
-            hero.SetHealthForBattle();
+            hero.InitializeHealth();
         }
     }
 

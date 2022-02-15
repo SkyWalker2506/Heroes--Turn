@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace StateMachine
 {
@@ -15,6 +16,7 @@ namespace StateMachine
             StateStack = new Stack<IState>();
             StateStack.Push(newState);
             CurrentState.Enter();
+            Debug.Log(newState);
         }
 
         public void PushState(IState newState)

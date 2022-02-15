@@ -4,9 +4,10 @@
     {
         HeroDisplayController heroDisplayController;
 
-        public DisplayStatsState(HeroStateMachine heroStateMachine) : base(heroStateMachine)
+        public DisplayStatsState(Hero hero) 
         {
-            heroDisplayController = heroStateMachine.Hero.DisplayController;
+            StateMachine = hero.HeroStateMachine;
+            heroDisplayController = (HeroDisplayController)hero.DisplayController;
         }
 
         public override void OnTap()

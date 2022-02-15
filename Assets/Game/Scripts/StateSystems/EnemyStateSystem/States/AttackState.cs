@@ -12,7 +12,7 @@
 
         public override void Enter()
         {
-            target.ApplyDamage(enemy.EnemyStats.AttackPower);
+            target.ApplyDamage(enemy.Stats.AttackPower);
         }
     }
 }

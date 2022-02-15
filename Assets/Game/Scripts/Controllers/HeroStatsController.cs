@@ -13,7 +13,7 @@ public class HeroStatsController : MonoBehaviour
 
     private void Awake()
     {
-        heroStats = GetComponent<Hero>()?.HeroStats;
+        heroStats = (HeroStats)GetComponent<Hero>()?.Stats;
     }
 
     public void ShowStats()

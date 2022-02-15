@@ -35,8 +35,7 @@ public class HeroSelectionController : MonoBehaviour
         {
             var hero = ((GameObject)Instantiate(Resources.Load(heros[i].name),heroContainer)).GetComponent<Hero>();
             hero.name = heros[i].name;
-            hero.HealthUI.ToggleUI(false);
-            hero.HeroStateMachine.SetState(new ReadyToSelectState(hero.HeroStateMachine));
+            hero.HeroStateMachine.SetState(new ReadyToSelectState(hero));
         }
     }
 }

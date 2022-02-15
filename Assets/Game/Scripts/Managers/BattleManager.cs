@@ -24,8 +24,7 @@ public class BattleManager : MonoBehaviour
 
     void InitializeBattle()
     {
-        heroBattleController.SetHeroes();
-        enemyBattleController.SetEnemyForBattle();
+        battleStateMachine.SetState(new BattleStarted(battleStateMachine,heroBattleController, enemyBattleController));
     }
 
     void SetPlayerLost()

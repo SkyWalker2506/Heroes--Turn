@@ -7,7 +7,7 @@ public class HeroBattleController : MonoBehaviour
 {
     [SerializeField] Transform[] heroContainers;
     Hero[] heroes;
-    public List<Hero> aliveHeroes { get; private set; }
+    public List<Hero> aliveHeroes { get; private set; } = new List<Hero>();
     public UnityEvent OnAllHeroesDied;
 
     public void SetHeroes()
@@ -24,7 +24,7 @@ public class HeroBattleController : MonoBehaviour
 
         foreach (var hero in aliveHeroes)
         {
-            hero.HeroStats.OnHealthBelowZero.AddListener(() => RemoveHero(hero));
+            hero.Stats.OnHealthBelowZero.AddListener(() => RemoveHero(hero));
         }
     }
 
@@ -42,6 +42,14 @@ public class HeroBattleController : MonoBehaviour
             return aliveHeroes[Random.Range(0, count)];
         else
             return null;
+    }
+
+    public void SetAliveHeroesForTurn(Enemy enemy)
+    {
+        foreach (var hero in aliveHeroes)
+        {
+            hero.HeroStateMachine.SetState(new ReadyToAttackState(hero,enemy));
+        }
     }
 
 }
