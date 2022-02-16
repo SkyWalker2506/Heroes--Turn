@@ -1,4 +1,6 @@
-﻿public class EnemyDisplayController : DisplayController
+﻿using System;
+
+public class EnemyDisplayController : DisplayController
 {
 
 }

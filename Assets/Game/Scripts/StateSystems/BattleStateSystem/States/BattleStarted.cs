@@ -9,21 +9,21 @@ namespace StateMachine.BattleStateMachine
         HeroBattleController heroBattleController;
         EnemyBattleController enemyBattleController;
 
-        public BattleStarted(BattleStateMachine battleStateMachine, HeroBattleController heroBattleController, EnemyBattleController enemyBattleController)
-        {
-            this.battleStateMachine = battleStateMachine;
-            this.heroBattleController = heroBattleController;
-            this.enemyBattleController = enemyBattleController;
-        }
+        //public BattleStarted() 
+        //{
+        //    battleStateMachine = BattleManager.BattleStateMachine;
+        //    heroBattleController = BattleManager.HeroBattleController;
+        //    enemyBattleController = BattleManager.EnemyBattleController;
+        //}
 
         public override void Enter()
         {
-            heroBattleController.SetHeroes();
-            enemyBattleController.SetEnemyForBattle();
+            BattleManager.HeroBattleController.SetHeroes();
+            BattleManager.EnemyBattleController.SetEnemyForBattle();
             if (Random.value > .5f)
-                battleStateMachine.SetState(new PlayerTurn(heroBattleController, enemyBattleController));
+                BattleManager.BattleStateMachine.SetState(new PlayerTurn());
             else
-                battleStateMachine.SetState(new EnemyTurn());
+                BattleManager.BattleStateMachine.SetState(new EnemyTurn());
 
         }
     }

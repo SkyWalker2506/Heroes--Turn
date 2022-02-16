@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     GameStateMachine gameStateMachine = new GameStateMachine();
     GameState CurrentState => gameStateMachine.CurrentGameState;
     [SerializeField] ScriptableGameManager scriptableGameManager;
@@ -15,7 +16,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        scriptableGameManager?.SetGameManager(this);
+        if (Instance) Destroy(gameObject);
+        Instance = this;
         OpenHeroSelection();
     }
 

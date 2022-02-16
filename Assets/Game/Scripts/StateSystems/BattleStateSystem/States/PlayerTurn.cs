@@ -4,16 +4,15 @@
     {
         HeroBattleController heroBattleController;
         EnemyBattleController enemyBattleController;
-
-        public PlayerTurn(HeroBattleController heroBattleController, EnemyBattleController enemyBattleController)
-        {
-            this.heroBattleController = heroBattleController;
-            this.enemyBattleController = enemyBattleController;
-        }
+        BattleUIController battleUIController;
 
         public override void Enter()
         {
-            heroBattleController.SetAliveHeroesForTurn(enemyBattleController.Enemy);
+            heroBattleController = BattleManager.HeroBattleController;
+            enemyBattleController = BattleManager.EnemyBattleController;
+            battleUIController = BattleManager.BattleUIController;
+            battleUIController.SetTurnText("Player Turn");
+            heroBattleController.SetAliveHeroesForTurn(BattleManager);
             enemyBattleController.SetEnemyForDefending();
         }
 

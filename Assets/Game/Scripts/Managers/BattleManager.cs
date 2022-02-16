@@ -1,40 +1,53 @@
 using StateMachine.BattleStateMachine;
+using StateMachine.EnemyStateMachine;
 using StateMachine.GameStateMachine;
+using System.Collections;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    BattleStateMachine battleStateMachine = new BattleStateMachine();
+    public BattleStateMachine BattleStateMachine;
     [SerializeField] HeroBattleController heroBattleController;
+    public HeroBattleController HeroBattleController { get => heroBattleController; }
     [SerializeField] EnemyBattleController enemyBattleController;
+    public EnemyBattleController EnemyBattleController { get => enemyBattleController; }
+    [SerializeField] BattleUIController battleUIController;
+    public BattleUIController BattleUIController { get => battleUIController; }
+
+    private void Awake()
+    {
+        BattleStateMachine = new BattleStateMachine(this);
+        EnemyBattleController.Enemy.EnemyStateMachine = new EnemyStateMachine(this);
+    }
 
     private void OnEnable()
     {
         BattleState.OnBattleStarted?.AddListener(InitializeBattle);
-        enemyBattleController.OnEnemyDied?.AddListener(SetPlayerWon);
-        heroBattleController.OnAllHeroesDied?.AddListener(SetPlayerLost);
+        EnemyBattleController.OnEnemyDied+=SetPlayerWon;
+        HeroBattleController.OnAllHeroesDied?.AddListener(SetPlayerLost);
     }
 
     private void OnDisable()
     {
         BattleState.OnBattleStarted?.RemoveListener(InitializeBattle);
-        heroBattleController.OnAllHeroesDied?.RemoveListener(SetPlayerLost);
-        enemyBattleController.OnEnemyDied?.RemoveListener(SetPlayerWon);
+        HeroBattleController.OnAllHeroesDied?.RemoveListener(SetPlayerLost);
+        EnemyBattleController.OnEnemyDied-=SetPlayerWon;
     }
 
+    //void InitializeBattle()=>StartCoroutine(IEInitializeBattle());
     void InitializeBattle()
     {
-        battleStateMachine.SetState(new BattleStarted(battleStateMachine,heroBattleController, enemyBattleController));
+        BattleStateMachine.SetState(new BattleStarted());
     }
 
     void SetPlayerLost()
     {
-        battleStateMachine.SetState(new PlayerLostState());
+        BattleStateMachine.SetState(new PlayerLostState());
     }
 
     void SetPlayerWon()
     {
-        battleStateMachine.SetState(new PlayerWonState());
+        BattleStateMachine.SetState(new PlayerWonState());
     }
 
 }

@@ -9,8 +9,8 @@ public abstract class CharacterStats : ICharacterStats
     public float HealthPercentage => (CurrentHealth*1f)/Health;
     [SerializeField] protected int baseAttackPower;
     public virtual int AttackPower => baseAttackPower;
-    public UnityEvent OnHealthUpdated => new UnityEvent();
-    public UnityEvent OnHealthBelowZero => new UnityEvent();
+    public UnityAction OnHealthUpdated { get; set; }
+    public UnityAction OnHealthBelowZero { get; set; }
 
     public void ResetHealth()
     {

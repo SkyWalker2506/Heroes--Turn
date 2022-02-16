@@ -6,6 +6,7 @@ public interface ICharacterStats
     int CurrentHealth { get; }
     float HealthPercentage { get; }
     int AttackPower { get; }
-    UnityEvent OnHealthUpdated { get; }
+    UnityAction OnHealthUpdated { get; set; }
+    UnityAction OnHealthBelowZero { get; set; }
 
 }

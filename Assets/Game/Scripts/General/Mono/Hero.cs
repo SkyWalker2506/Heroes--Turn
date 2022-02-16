@@ -16,5 +16,4 @@ public class Hero : Character
         heroStats.LoadData();
     }
 
-
 }

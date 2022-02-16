@@ -3,17 +3,18 @@
     public class ReadyToAttackState : HeroState
     {
         Hero hero;
-        Enemy enemy;
+        BattleManager battleManager;
 
-        public ReadyToAttackState(Hero hero, Enemy enemy)
+        public ReadyToAttackState(Hero hero, BattleManager battleManager)
         {
             this.hero = hero;
-            this.enemy = enemy;
+            this.battleManager = battleManager;
+            StateMachine = hero.HeroStateMachine;
         }
 
         public override void OnTap()
         {
-            StateMachine.SetState(new AttackState(hero, enemy));
+            StateMachine.SetState(new AttackState(hero.Stats.AttackPower, battleManager));
         }
 
         public override void OnHold()

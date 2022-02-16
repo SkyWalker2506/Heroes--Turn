@@ -11,9 +11,9 @@ public class HealthUI: MonoBehaviour
     public void SetCharacterStats(ICharacterStats stats)
     {
         if (characterStats != null)
-            characterStats.OnHealthUpdated.RemoveListener(UpdateUI);
+            characterStats.OnHealthUpdated -= UpdateUI;
         characterStats = stats;
-        characterStats.OnHealthUpdated.AddListener(UpdateUI);
+        characterStats.OnHealthUpdated += UpdateUI;
         UpdateUI();
     }
 
@@ -25,7 +25,7 @@ public class HealthUI: MonoBehaviour
     private void OnDisable()
     {
         if (characterStats != null)
-            characterStats.OnHealthUpdated.RemoveListener(UpdateUI);
+            characterStats.OnHealthUpdated -= UpdateUI;
     }
 
     void UpdateUI()

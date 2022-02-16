@@ -1,4 +1,5 @@
 ﻿using StateMachine.HeroStateMachine;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,8 @@ public class HeroBattleController : MonoBehaviour
     [SerializeField] Transform[] heroContainers;
     Hero[] heroes;
     public List<Hero> aliveHeroes { get; private set; } = new List<Hero>();
+    public bool HasAnyLiveHeroes => aliveHeroes.Count > 0;
+
     public UnityEvent OnAllHeroesDied;
 
     public void SetHeroes()
@@ -24,7 +27,15 @@ public class HeroBattleController : MonoBehaviour
 
         foreach (var hero in aliveHeroes)
         {
-            hero.Stats.OnHealthBelowZero.AddListener(() => RemoveHero(hero));
+            hero.Stats.OnHealthBelowZero+=() => RemoveHero(hero);
+        }
+    }
+
+    public void SetAliveHeroesToIdle()
+    {
+        foreach (var hero in aliveHeroes)
+        {
+            hero.HeroStateMachine.SetState(new IdleState());
         }
     }
 
@@ -39,16 +50,16 @@ public class HeroBattleController : MonoBehaviour
     {
         var count = aliveHeroes.Count;
         if (count > 0)
-            return aliveHeroes[Random.Range(0, count)];
+            return aliveHeroes[UnityEngine.Random.Range(0, count)];
         else
             return null;
     }
 
-    public void SetAliveHeroesForTurn(Enemy enemy)
+    public void SetAliveHeroesForTurn(BattleManager battleManager)
     {
         foreach (var hero in aliveHeroes)
         {
-            hero.HeroStateMachine.SetState(new ReadyToAttackState(hero,enemy));
+            hero.HeroStateMachine.SetState(new ReadyToAttackState(hero, battleManager));
         }
     }
 

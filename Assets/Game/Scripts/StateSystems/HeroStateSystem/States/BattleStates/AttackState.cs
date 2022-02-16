@@ -1,19 +1,22 @@
-﻿namespace StateMachine.HeroStateMachine
+﻿using StateMachine.BattleStateMachine;
+
+namespace StateMachine.HeroStateMachine
 {
     public class AttackState : HeroState
     {
-        Hero hero;
-        Enemy enemy;
+        int attackPower;
+        BattleManager battleManager;
 
-        public AttackState(Hero hero,Enemy enemy)
+        public AttackState(int attackPower, BattleManager battleManager)
         {
-            this.hero = hero;
-            this.enemy = enemy;
+            this.attackPower = attackPower;
+            this.battleManager = battleManager;
         }
 
         public override void Enter()
         {
-            enemy.ApplyDamage(hero.Stats.AttackPower);
+            battleManager.EnemyBattleController.Enemy.ApplyDamage(attackPower);
+            battleManager.BattleStateMachine.SetState(new EnemyTurn());
         }
     }
 }

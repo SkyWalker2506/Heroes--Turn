@@ -9,7 +9,7 @@ namespace StateMachine
         public IState CurrentState => StateStack.Peek();
 
 
-        public void SetState(IState newState)
+        public virtual void SetState(IState newState)
         {
             if (StateStack.Count > 0)
                 CurrentState.Exit();
