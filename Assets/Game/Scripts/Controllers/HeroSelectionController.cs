@@ -6,18 +6,7 @@ public class HeroSelectionController : MonoBehaviour
 {
     [SerializeField] Transform heroContainer;
     [SerializeField] GameObject[] heros;
-    static int availableHeroCount=3;
-
-    private void Awake()
-    {
-        availableHeroCount = PlayerPrefs.GetInt("HeroCount", 3);
-    }
-
-    public static void UpdateHeroCount(int count)
-    {
-        availableHeroCount = count;
-        PlayerPrefs.SetInt("HeroCount", availableHeroCount);
-    }
+    int availableHeroCount{get { return (GameManager.Instance.PlayedGameCount / 5) + 3; }}
 
     private void OnEnable()
     {

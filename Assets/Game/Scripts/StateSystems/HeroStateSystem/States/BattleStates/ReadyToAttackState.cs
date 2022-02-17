@@ -14,7 +14,7 @@
 
         public override void OnTap()
         {
-            StateMachine.SetState(new AttackState(hero.Stats.AttackPower, battleManager));
+            StateMachine.SetState(new AttackState(hero, battleManager));
         }
 
         public override void OnHold()

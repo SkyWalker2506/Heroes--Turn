@@ -16,6 +16,10 @@ PrefabInstance:
       value: Hero 1
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
+      propertyPath: heroStats.Level
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: HeroStats.BaseHealth
       value: 80
       objectReference: {fileID: 0}

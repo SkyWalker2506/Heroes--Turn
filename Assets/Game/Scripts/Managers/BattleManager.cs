@@ -1,7 +1,6 @@
 using StateMachine.BattleStateMachine;
 using StateMachine.EnemyStateMachine;
 using StateMachine.GameStateMachine;
-using System.Collections;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -50,4 +49,16 @@ public class BattleManager : MonoBehaviour
         BattleStateMachine.SetState(new PlayerWonState());
     }
 
+    public void HandleWinState()
+    {
+        heroBattleController.GiveExperienceToAliveHeroes();
+        GameManager.Instance.IncreasePlayedGameCount();
+        GameManager.Instance.OpenHeroSelection();
+    }
+
+    public void HandleLostState()
+    {
+        GameManager.Instance.IncreasePlayedGameCount();
+        GameManager.Instance.OpenHeroSelection();
+    }
 }

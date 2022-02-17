@@ -1,4 +1,5 @@
 using StateMachine.GameStateMachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public int PlayedGameCount;
     GameStateMachine gameStateMachine = new GameStateMachine();
     GameState CurrentState => gameStateMachine.CurrentGameState;
-    [SerializeField] ScriptableGameManager scriptableGameManager;
     [SerializeField] string heroSelectionScene;
     [SerializeField] string battleScene;
 
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance) Destroy(gameObject);
         Instance = this;
+        PlayedGameCount = PlayerPrefs.GetInt("PlayedGameCount", 0);
         OpenHeroSelection();
     }
 
@@ -29,5 +31,11 @@ public class GameManager : MonoBehaviour
     public void OpenBattle()
     {
         gameStateMachine.SetState(new BattleState(battleScene));
+    }
+
+    public void IncreasePlayedGameCount()
+    {
+        PlayedGameCount++;
+        PlayerPrefs.SetInt("PlayedGameCount", PlayedGameCount);
     }
 }

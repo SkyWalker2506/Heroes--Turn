@@ -41,7 +41,7 @@ public class DisplayController : MonoBehaviour
 
     IEnumerator IEShowGettingReadyToAttack()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             gettingReadyToAttackImage.SetActive(true);
             yield return new WaitForSecondsRealtime(.15f);

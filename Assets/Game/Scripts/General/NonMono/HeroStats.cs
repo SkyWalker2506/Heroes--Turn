@@ -14,7 +14,8 @@ public class HeroStats : CharacterStats
 
     public void AddExperience(int value)
     {
-        while(Experience>=maxExperiencePerLevel)
+        Experience += value;
+        while (Experience>=maxExperiencePerLevel)
         {
             Experience %= maxExperiencePerLevel;
             Level++;

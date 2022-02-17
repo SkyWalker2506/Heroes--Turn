@@ -35,7 +35,7 @@ public class HeroBattleController : MonoBehaviour
     {
         foreach (var hero in aliveHeroes)
         {
-            hero.HeroStateMachine.SetState(new IdleState());
+            hero.HeroStateMachine.SetState(new IdleState(hero));
         }
     }
 
@@ -60,6 +60,24 @@ public class HeroBattleController : MonoBehaviour
         foreach (var hero in aliveHeroes)
         {
             hero.HeroStateMachine.SetState(new ReadyToAttackState(hero, battleManager));
+        }
+    }
+
+    public void GiveExperienceToAliveHeroes()
+    {
+        foreach (var hero in aliveHeroes)
+        {
+            hero.AddExp(1);
+        }
+    }
+
+    public void SetNotAttackingHeroesToIdle()
+    {
+        foreach (var hero in aliveHeroes)
+        {
+            var stateMachine = hero.HeroStateMachine;
+            if (!(stateMachine.CurrentState is AttackState))
+                hero.HeroStateMachine.SetState(new IdleState(hero));
         }
     }
 

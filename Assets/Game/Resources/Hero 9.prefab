@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: heroStats.Name
-      value: 'Hero '
+      value: Hero 9
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: HeroStats.BaseHealth
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: heroStats.baseHealth
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 2456526883605573427, guid: f856e30cb318dc948b9cf7da426867fc, type: 3}
       propertyPath: HeroStats.BaseAttackPower

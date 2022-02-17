@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats:
     baseHealth: 100
-    baseAttackPower: 25
+    baseAttackPower: 35
   displayController: {fileID: 6863854006646772858}
 --- !u!114 &6863854006646772858
 MonoBehaviour:

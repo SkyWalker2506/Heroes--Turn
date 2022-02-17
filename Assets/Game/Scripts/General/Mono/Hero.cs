@@ -16,4 +16,9 @@ public class Hero : Character
         heroStats.LoadData();
     }
 
+    public void AddExp(int value)
+    {
+        heroStats.AddExperience(value);
+    }
+
 }

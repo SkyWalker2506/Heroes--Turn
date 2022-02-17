@@ -12,13 +12,14 @@ namespace StateMachine.EnemyStateMachine
         {
             enemy = BattleManager.EnemyBattleController.Enemy;
             heroBattleController = BattleManager.HeroBattleController;
-            enemy.StartGettingReadyToAttack();
             GameManager.Instance.StartCoroutine(IEAttack());
         }
 
         IEnumerator IEAttack()
         {
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(1f);
+            enemy.StartGettingReadyToAttack();
+            yield return new WaitForSecondsRealtime(2f);
             var target = heroBattleController.GetRandomHero();
             enemy.EnemyStateMachine.SetState(new AttackState());
         }
