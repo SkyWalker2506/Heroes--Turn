@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class DisplayController : MonoBehaviour
@@ -25,12 +25,12 @@ public class DisplayController : MonoBehaviour
 
     IEnumerator IEShowGettingDamaged()
     {
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 15; i++)
         {
             gettingDamagedImage.SetActive(true);
-            yield return new WaitForSecondsRealtime(.025f);
+            yield return new WaitForSecondsRealtime(.02f);
             gettingDamagedImage.SetActive(false);
-            yield return new WaitForSecondsRealtime(.025f);
+            yield return new WaitForSecondsRealtime(.02f);
         }
     }
 
@@ -44,9 +44,9 @@ public class DisplayController : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             gettingReadyToAttackImage.SetActive(true);
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.1f);
             gettingReadyToAttackImage.SetActive(false);
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.1f);
         }
     }
 }
